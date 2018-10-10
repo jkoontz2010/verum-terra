@@ -1,0 +1,144 @@
+body {
+  background-image: url('assets/backgrounds/the_enchanted_trinkets_shop_by_shutupandwhisper-min.jpg');
+  background-size: 100vw 100vh;
+  background-attachment:fixed;
+  background-repeat: no-repeat;
+}
+
+.App {
+  text-align: center;
+  margin-top: 75px;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.decrease-btn {
+    background-color: #6F634B;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.increase-btn {
+    background-color: #D9A460;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.card-quantifier {
+  padding: 7px;
+  display: flex;
+    align-items: center;
+    justify-content: center;
+  
+}
+
+.card-display {
+  margin-top: 40px;
+}
+
+.req-display {
+  margin-top: 20px;
+  outline: 1px solid;
+}
+.forge-card-view-area {
+  padding-right: 0px !important;
+}
+
+.quanitifer-view-area {
+  padding: 0px;
+}
+
+.forge-card {
+  display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.forge-card-display {
+  background-color: #444;
+  margin: 3px;
+  padding: 3px !important;
+  margin-bottom: 5px;
+  text-align: center;
+}
+.no-padding {
+  padding: 0px;
+}
+.main-area {
+  padding: 50px 20px;
+  background-color: #13100B;
+  color: #FFFFEC;
+  opacity: .9;
+
+  border: 5px solid;
+  border-color: #6F634B;
+  border-radius: 2px;
+}
+
+.main-btn {
+
+  background-color: #D9A460;
+    border: 2px solid;
+    border-color: #CEC3B3;
+    padding: 8px 45px;
+}
+
+.main-btn:active {
+  background-color: #6F634B;
+}
+
+.forge-action-area {
+  margin-top: 45px;
+}
+
+.card-image {
+  width: 60px;
+  height: 50px;
+
+
+}
+.title {
+  margin-left: 0px;
+}
+.quantifier {
+    display: flex;
+    justify-content: space-around;
+}
+
+.flex-centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.special-card-img {
+  margin: 40px 0px;
+}
+
+.not-met {
+  background-color: #630000;
+}
