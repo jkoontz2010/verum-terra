@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ForgeCardView from './ForgeCardView'
 import Quantifier from './Quanitifier'
-
+import get from 'lodash/get'
 export default class AskView extends Component {
 
     renderCardQuantifier = (forgeCard, idx) => {
@@ -23,14 +23,27 @@ export default class AskView extends Component {
     }
     render() {
         const { forgeCards, submitForge } = this.props;
+
+        const hasLoaded = get(forgeCards, 'length') > 1
+
+        if(!hasLoaded) return (
+            <div className="ask-area col-sm-12">
+    
+                    <h1>Loading!</h1>
+                
+                
+                </div>
+        )
         return (
 
                 <div className="ask-area col-sm-12">
+    
                     {forgeCards.map(this.renderCardQuantifier)}
                     <div className="col-sm-12 forge-action-area">
                         <button className="main-btn" onClick={() => submitForge()}>FORGE</button>
                     </div>
-                    
+                
+                
                 </div>
                 
 

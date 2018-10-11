@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 import ForgeCardView from './ForgeCardView'
+import get from 'lodash/get'
 
 export default class ResultsDisplay extends Component {
     renderMetRequirement = (forgeRequirement, idx) => {
-        const { forgeCard, quantity } = forgeRequirement;
-        console.log("forge card", forgeCard)
-        const matchingForgeCard = this.props.forgeCards.filter(fc => fc.name === forgeCard)[0];
+        const { id, quantity } = forgeRequirement;
+        console.log("forge card", id)
+        const matchingForgeCard = this.props.forgeCards.filter(fc => fc.id === id)[0];
         console.log("MATCHERRRR", matchingForgeCard)
         return (
             <div className='col-sm-5 col-md-4 forge-card-display flex-centered' key={'req'+idx}>
                 <div className="col-sm-1">{quantity}/{quantity}</div>
                 <div className="no-padding col-sm-10">
-                    <ForgeCardView name={forgeCard} icon={matchingForgeCard.icon} />
+                    <ForgeCardView name={matchingForgeCard.name} icon={matchingForgeCard.icon} />
                     
                 </div>
                 
@@ -19,15 +20,15 @@ export default class ResultsDisplay extends Component {
         )
     }
     renderNotMetRequirement = (forgeRequirement, idx) => {
-       const { forgeCard, quantity, quantityMet } = forgeRequirement;
-       const matchingForgeCard = this.props.forgeCards.filter(fc => fc.name === forgeCard)[0];
+       const { id, quantity, quantityMet } = forgeRequirement;
+       const matchingForgeCard = this.props.forgeCards.filter(fc => fc.id === id)[0];
         console.log("MATCHEOOOOOO", matchingForgeCard)
         return (
             <div className='col-sm-5 col-md-4 not-met forge-card-display flex-centered' key={'req'+idx}>
                 
                 <div className="col-sm-1">{`${quantityMet}/${quantity}`} </div>
                 <div className="no-padding col-sm-10">
-                    <ForgeCardView name={forgeCard} icon={matchingForgeCard.icon} />
+                    <ForgeCardView name={matchingForgeCard.name} icon={get(matchingForgeCard, 'icon')} />
                 </div>
             </div>
         )
@@ -74,7 +75,7 @@ export default class ResultsDisplay extends Component {
         const reqsClone = JSON.parse(JSON.stringify(reqs));
         // determine if a partial is in a req 
         reqsClone.map(req => {
-            const matchingReq = missing.find(mreq => mreq.forgeCard === req.forgeCard);
+            const matchingReq = missing.find(mreq => mreq.id === req.id);
             if(matchingReq) {
                 req.notMet = true;
 

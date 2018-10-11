@@ -1,7 +1,8 @@
 // just the SoecialCards object
 
 export default class SpecialCard {
-    constructor(name, icon, requirements) {
+    constructor(id, name, icon, requirements) {
+        this.id = id
         this.name = name;
         this.icon = icon;
         this.requirements = requirements;
@@ -12,6 +13,9 @@ export default class SpecialCard {
 
     checkRequirements(forgeCards) {
         this.missingRequirements = [];
+
+        // give requirements the proper forgeCard (forgeCard.name) per id
+        
         // requirements array: [{forgeCard: string, quantity: int}]
         // forgeCards array: [ForgeCard, ForgeCard]
         // ForgeCard: {name, icon, quantity}
@@ -22,8 +26,8 @@ export default class SpecialCard {
             console.log("WE HERE WITH THE FORGE CARD", forgeCard)
             //if the forge card name is found in requirements
             console.log(requirementsClone)
-            console.log("CHECKING AGAINST", forgeCard.name, requirementsClone.find(req => req.forgeCard === forgeCard.name))
-            const matchingRequirement = requirementsClone.find(req => req.forgeCard === forgeCard.name)
+            console.log("CHECKING AGAINST", forgeCard.name, requirementsClone.find(req => req.id === forgeCard.id))
+            const matchingRequirement = requirementsClone.find(req => req.id === forgeCard.id)
             if(matchingRequirement) {
                 // reduce the requirement by the forge card count
                 this.requirementsPartiallyMet = true;

@@ -3,8 +3,8 @@ import DB from './DB'
 
 const cardDB = new DB();
 
-export const getForgeCards = () => {
-    const forgeCards = cardDB.forgeCards;
+export const  getForgeCards = async () => {
+    const forgeCards = await cardDB.initForgeCards();
     return forgeCards;
 } 
 
